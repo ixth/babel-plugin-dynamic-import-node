@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { join } from 'path';
 import { readdirSync, statSync, readFileSync } from 'fs';
+// import { transform } from 'babel-core';
 import templates from 'babel-plugin-transform-es2015-template-literals';
 
 import testPlugin from './testPlugin';
@@ -39,5 +40,16 @@ describe('babel-plugin-dynamic-import-node', () => {
       );
       expect(result.trim()).to.equal(expectedES2015.trim());
     });
+
+    // it(`works with ${folderName} and the mode: 'default'`, () => {
+    //   const result = transform(actual, {
+    //     presets: ['env'],
+    //     plugins: [
+    //       [templates, { spec: true }],
+    //       ['./src/index.js', { mode: 'default' }],
+    //     ],
+    //   }).code;
+    //   expect(result.trim()).to.equal(expectedES2015.trim());
+    // });
   });
 });
